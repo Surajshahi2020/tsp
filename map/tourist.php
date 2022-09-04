@@ -1,5 +1,9 @@
+
+
+
+
+
 <?php include "connect.php";
-include "index.php";
 
  ?>
 
@@ -13,10 +17,9 @@ include "index.php";
     <title>Multi Marker Map </title>
     <style>
 
-
-
-
 .show {display: block;}
+.container{float:right;}
+
 </style>
  
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -49,16 +52,7 @@ include "index.php";
                 $lng = $data['lng'];
                 $Founder = $data['Founder'];
                   $url = $data['url'];
-            
-              
-  
 
-
-
-
-
-
-                
                 echo ("addMarker($lat, $lng,'<b>$name</b>,<br><a href=\"$url\"><b>$Founder</b></a>');\n"); 
 
                              
@@ -120,15 +114,16 @@ window.onclick = function(event) {
 
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-default">
+            <!-- <div class="panel panel-default"> -->
            
-                    <div class="panel-body">
-                        <div id="map-canvas" style="width: 1525px; height: 750px;"></div>
-                    </div>
+                    <!-- <div class="panel-body"> -->
+                        <div id="map-canvas" style="width: 1100px; height: 800px; top:40px;"></div>
+                    <!-- </div> -->
             </div>
         </div>  
     </div>
-</div>  
+</div> 
+ 
 </body>
 
 </html>
