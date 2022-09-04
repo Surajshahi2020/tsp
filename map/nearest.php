@@ -13,16 +13,16 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="http://localhost/project/map/tourist.php">Located Places</a>
+      <a class="navbar-brand" href="http://localhost/project/onlinetourism/tms/">Home</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="http://localhost/project/map/tourist.php">Home</a></li>
+      <li class="active"><a href="http://localhost/project/tsp">Profile</a></li>
       <li><a href="http://localhost/project/map/user-map.php">Locate</a></li>
       <li>
 
-
 <?php
 include('db.php');
+include('tourist.php');
 
 $v1=doubleval($_GET['lat']);
 $v2=doubleval($_GET['long']);
@@ -56,7 +56,7 @@ if($query->rowCount() > 0)
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 20%;
 }
 
 #customers td, #customers th {
