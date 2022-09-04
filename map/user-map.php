@@ -1,3 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Google Map</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost/project/onlinetourism/tms/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost/project/tsp">Profile</a></li>
+      <li><a href="http://localhost/project/map/user-map.php">Locate</a></li>
+      <li>
+      <!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 10px 160px;
+  cursor: pointer;
+
+}
+</style>
+</head>
+<body onload="geoLocation()">
+
+<script type="text/javascript">
+  function geoLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition);
+
+
+}
+ }
+
+  function showPosition(position){
+document.getElementById("lats").value=+position.coords.latitude;
+document.getElementById("longs").value=+position.coords.longitude;
+
+
+
+  }
+
+
+</script>
+
+<form action="index.php" method="POST">
+<input type="hidden" name="lats" id="lats">
+<input type="hidden" name="longs" id="longs">
+
+<button class="button" type="submit" name="subm" id="subm">Search Places</button>
+
+
+
+<?php
+if(isset($_POST['subm'])){
+
+  $l1 = $_POST['lats'];
+  $l2 = $_POST['longs'];
+  header("Location:nearest.php?lat=$l1&long=$l2");
+  
+
+
+
+
+}
+?>
+
+
+</form>
+
+</body>
+</html>
+
+
+
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+
+</div>
+
+</body>
+</html>
+
+
+
+</li>
+
+      
+    </ul>
+  </div>
+</nav>
+  
+<div class="container" color:black;>
+
+</div>
+
+</body>
+</html>
+
+
 <?php
 include_once 'header.php';
 include 'locations_model.php';
@@ -38,14 +158,12 @@ include 'locations_model.php';
             margin-left: 20%;
             width:50%
         }
-        #map { position:absolute; margin-left: 20%; top:525px; bottom:0px;height:550px ;width:800px; }
+        #map { position:absolute; margin-left: 20%; top:670px; bottom:0px;height:550px ;width:800px; }
         .geocoder {
-            position:absolute; margin-left: 20%; top:525px
+            position:absolute; margin-left: 20%; top:670px
         }
     </style>
-
-    <h3>Google map for Business Users</h3>
-
+<border-style: solid;>
     <div class="container">
         <form action="" id="signupForm">
             <label for="lat">Latitude</label>
@@ -82,7 +200,7 @@ include 'locations_model.php';
             <input type="submit" value="Submit" >
         </form>
     </div>
-
+    </border >
     <div class="geocoder">
         <div id="geocoder" ></div>
     </div>
@@ -124,7 +242,7 @@ include 'locations_model.php';
             addMarker(user_location,'load');
             add_markers(saved_markers);
 
-            // Listen for the `result` event from the MapboxGeocoder that is triggered when a user
+            // Listen for the result event from the MapboxGeocoder that is triggered when a user
             // makes a selection and add a symbol that matches the result.
             geocoder.on('result', function(ev) {
                 alert("Loading");
@@ -200,7 +318,7 @@ include 'locations_model.php';
 
     </script>
 <body style="background-color:#F3F6FB;">
-<a href="http://localhost/map/tourist.php">Visit map</a>
+
 </body>
 
 
