@@ -28,7 +28,7 @@ $v1=doubleval($_GET['lat']);
 $v2=doubleval($_GET['long']);
 
 $sql="SELECT id,name,Founder,( 3959 * acos( cos( radians($v1) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($v2) )+ sin( 
-radians($v1) )*sin( radians( lat ) ) ) ) AS distance FROM locations HAVING distance < 25 ORDER BY distance LIMIT 0 , 20";
+radians($v1) )*sin( radians( lat ) ) ) ) AS distance,lat,lng FROM locations HAVING distance < 25 ORDER BY distance LIMIT 0 , 20";
 
 
 
@@ -97,6 +97,17 @@ if($query->rowCount() > 0)
       <th>Distance as KM</th>
     <td><?php echo htmlentities($result->distance); ?></td>
      </tr>
+
+  <tr>
+      <th>latitude</th>
+    <td><?php echo htmlentities($result->lat); ?></td>
+  </tr>
+  <tr>
+      <th>longitude</th>
+    <td><?php echo htmlentities($result->lng); ?></td>
+  </tr>
+
+
      <br>
      <br>
 </table>
