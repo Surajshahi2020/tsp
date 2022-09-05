@@ -44,7 +44,11 @@
 
         // Retrieve data from database
         <?php
-            $query = mysqli_query($con,"select * from locations");
+            
+            $v1=doubleval($_GET['lat']);
+            $v2=doubleval($_GET['long']);
+            $query = mysqli_query($con,"SELECT id,name,Founder,( 3959 * acos( cos( radians($v1) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($v2) )+ sin( 
+              radians($v1) )*sin( radians( lat ) ) ) ) AS distance,lat,lng,url FROM locations HAVING distance < 25 ORDER BY distance LIMIT 0 , 20");
             while ($data = mysqli_fetch_array($query))
             {
                 $name = $data['name'];
@@ -117,7 +121,7 @@ window.onclick = function(event) {
             <!-- <div class="panel panel-default"> -->
            
                     <!-- <div class="panel-body"> -->
-                        <div id="map-canvas" style="width: 1100px; height: 800px; top:40px;"></div>
+                        <div id="map-canvas" style="width: 1100px; height: 2080px; top:40px;"></div>
                     <!-- </div> -->
             </div>
         </div>  
